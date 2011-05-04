@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+<%= link_to "Sign out", destroy_user_session_path %>
+<% elsif controller_name != 'sessions' %>
+<%= link_to "Sign in", new_user_session_path %>
+<% end %>
+<% if !user_signed_in? && controller_name != 'registrations' %>
+<%= link_to "Sign up", new_user_registration_path %>
+<% end %>

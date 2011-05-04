@@ -1,0 +1,45 @@
+<% title "Groups - #{@group.name}" %>
+<% name "Groups > #{@group.name}" %>
+<%= content_for :action do%>
+<% if current_user.try(:admin?) %>
+<%= link_to 'Edit', edit_group_path(@group) %>
+<% end %>
+<% if user_signed_in? && !current_user.try(:member?, @group) %>
+<%= link_to 'Join', join_group_path(@group) %>
+<% elsif current_user.try(:member?, @group) %>
+<%= link_to 'Quit', quit_group_path(@group) %>
+<%= link_to 'New', new_post_path(@group) %>
+<% end %>
+<% end %>
+<section id="group">
+  <%= image_tag @group.icon.url(:small), :class => :icon %>
+  <article>
+    <header>
+      <p> Created on <time datetime="<%= @group.created_at.localtime.iso8601 %>"><%= @group.created_at.localtime.strftime("%m/%d/%Y") %></time></p>
+    </header>
+    <section class="text"><%= @group.description.gsub(/<\/?.*?>/, "").insert(0, "<p>").insert(-1, "</p>") %></section>
+  </article>
+</section>
+<ul id="posts">
+  <% @posts.each do |post| %>
+  <li>
+    <%= image_tag post.user.avatar.url(:small), :class => :avatar %>
+    <article>
+      <header>
+        <h1><%= link_to post.title, post_path(post) %></h1>
+        <p>Posted by 
+          <%= link_to post.user.login_name, user_profile_path(post.user.login_name) %>
+          <time datetime="<%= post.created_at.localtime.iso8601 %>"> <%= time_ago_in_words(post.created_at.localtime) %> ago</time>
+          <% if post.replies.exists? %>
+          | Last Replied by <%= link_to post.replies.last.user.login_name, user_profile_path(post.replies.last.user.login_name) %>
+          <time datetime="<%= post.last_replied.localtime.iso8601 %>"> <%= time_ago_in_words(post.last_replied.localtime) %> ago</time>
+          <% end %>
+        </p>
+        <%= link_to pluralize(post.replies.count, "Reply"), post_path(post) + "#replies", :class => "replies" %>
+      </header>
+      <section class="text"><%= htmlize(post.content) %></section>
+    </article>
+  </li>
+  <% end %>
+</ul>
+<%= paginate @posts %>

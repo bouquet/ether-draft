@@ -1,0 +1,53 @@
+<% title "Groups - #{@post.group.name} - #{@post.title}" %>
+<% name "Groups > #{@post.group.name} > #{@post.title}" %>
+<% content_for :action do%>
+<% if current_user.try(:admin?) || @post.user == current_user %>
+<%= link_to "Edit", edit_post_path(@post) %>
+<% end %>
+<%= link_to "Back to group", group_path(@post.group) %>
+<% end %>
+<section id="post">
+  <%= image_tag @post.user.avatar.url(:small), :class => :avatar %>
+  <article>
+    <header>
+      <p>Posted by  <%= link_to @post.user.login_name, user_profile_path(@post.user.login_name) %>
+        <time datetime="<%= @post.created_at.localtime.iso8601 %>"> <%= time_ago_in_words(@post.created_at.localtime) %> ago</time>
+      </p>
+    </header>
+    <section class="text"><%= htmlize(@post.content) %></section>
+  </article>
+</section>
+
+<ul id="replies">
+  <% @post.replies.each do |reply| %>
+  <li id="reply-<%= reply.id %>">
+    <%= image_tag reply.user.avatar.url(:small), :class => :avatar %>
+    <article>
+      <header>
+        <p><%= link_to reply.user.login_name, user_profile_path(reply.user.login_name) %> replied 
+          <time datetime="<%= reply.created_at.localtime.iso8601 %>"> <%= time_ago_in_words(reply.created_at.localtime) %> ago</time>
+        </p>
+        <% if current_user.try(:admin) || current_user == reply.user  %>
+        <%= button_to "Destroy", reply, :method => :delete, :class => "delet_reply" %>
+        <% end %>
+      </header>
+      <section class="text"><%= htmlize(reply.content) %></section>
+    </article>
+  </li>
+  <% end %>
+</ul>
+
+<% if user_signed_in? %>
+<%= form_for @reply, :html => {:class => "form"} do |f| %>
+  <% if @reply.errors.any? %>
+    <h2><%= pluralize(@reply.errors.count, 'error') %> stop this reply being saved:</h2>
+    <% @reply.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  <% end %>
+  <p>Leave your reply here</p>
+  <p><%= f.label :content %>
+  <%= f.text_area :content, :rows => 8 %></p>
+  <p id="submit"><%= f.submit 'Save' %></p>
+<% end %>
+<% end %>

@@ -1,0 +1,14 @@
+<%= form_for @post, :html => {:class => "form"} do |f| %>
+  <% if @post.errors.any? %>
+    <h2><%= pluralize(@post.errors.count, 'error') %> stop this post being saved:</h2>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  <% end %>
+  <p><%= f.label :title %>
+  <%= f.text_field :title %></p>
+  <p><%= f.label :content %>
+  <%= f.text_area :content %></p>
+  <%= f.hidden_field :group_id, :value => group_id %>
+  <p id="submit"><%= f.submit 'Save' %></p>
+<% end %>

@@ -1,0 +1,6 @@
+<% title "Groups - #{@group.name} - Update group info" %>
+<% name "Groups > #{@group.name} > Update group info" %>
+<%= content_for :action do%>
+<%= link_to 'Cancel', group_path(@group.id) %>
+<% end %>
+<%= render 'form' %>

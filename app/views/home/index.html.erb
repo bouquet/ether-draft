@@ -1,0 +1,15 @@
+<% title "Where we get connected" %>
+<% name "Home" %>
+<%= content_for :action do %>
+<% if current_user.try(:admin)%>
+<%= link_to 'New', new_group_path %>
+<% end %>
+<% end %>
+<section id="groups">
+<% @groups.each do |group| %>
+  <a class="group" href= "<%= url_for group %>" title="<%= group.name %>">
+    <%= image_tag group.icon.url(:small) %>
+    <span><%= group.name.truncate(12) %></span>
+  </a>
+<% end %>
+</section>

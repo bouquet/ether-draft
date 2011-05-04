@@ -1,0 +1,346 @@
+* {
+  vertical-align:top;
+  word-wrap:break-word;
+  word-break:break-all;
+}
+
+html {
+  background:#e4dfcf url(/images/body.png) repeat;
+}
+
+body {
+  width: 896px;
+  margin:0px auto;
+  padding: 0 48px 0 48px;
+  font-family:Helvetica, Verdana, Arial, sans-sans-serif;
+  background:#e4dfcf url(/images/body.png) repeat;
+}
+
+@font-face {
+  font-family:Museo;
+  src:url(/fonts/museo300-regular.eot?),
+      url(/fonts/museo300-regular.woff) format('opentype'),
+      url(/fonts/museo300-regular.otf) format('opentype');
+}
+
+header, footer {
+  font-family:Museo, sans-serif;
+}
+
+
+#top nav {
+  padding:6px 34px 8px;
+  margin-bottom:24px;
+  background:#805830 url(/images/nav.png) repeat;
+  border-right:1px #603c19 solid;
+  border-bottom:1px #603c19 solid;
+  border-left:1px #8c6243 solid;
+  color:#ffffff;
+  text-shadow:0 -1px 0 #333333;
+}
+
+#top nav ul {
+  list-style:none;
+}
+
+#top nav li {
+  display:inline-block;
+  margin-right:24px;
+}
+
+#top nav li a {
+  color:#ffffff;
+}
+
+#top hgroup {
+  padding:12px 0 12px 34px;
+  text-shadow:0 -1px 0 #56564d, 0 1px 0 #ffffff;
+  color:#8f8e80;
+  background:#d8d5c1;
+  border-top:1px #b7b5a6 solid;
+  border-right:1px #cccbba solid;
+  border-bottom:1px #cccbba solid;
+  border-left:1px #b7b5a6 solid;
+}
+
+#top h1 {
+  font-size:42px;
+	line-height:48px;
+}
+
+#top h2 {
+  font-size:22px;
+	line-height:30px;
+}
+
+#content {
+  text-shadow:0 1px 0 #ffffff;
+  margin-bottom:160px;
+}
+
+#guide {
+  margin:24px 0 12px 0;
+  padding-bottom:3px;
+  font-family:Museo, sans-serif;
+  font-size:22px;
+  line-height:30px;
+  font-weight:normal;
+  color:#86744d;
+}
+
+#actions {
+  float:right;
+}
+
+#actions a {
+  display:inline-block;
+  margin-left:-5px;
+  padding:0 12px;
+  font-size:16px;
+  line-height:24px;
+  background:#75725c;
+  border-left:1px #aaaaaa solid;
+  color:#dddddd;
+  text-shadow:0 -1px 0 #333333;
+}
+
+#actions a:hover {
+  background:#000000;
+  color:#ffffff;
+}
+
+#actions a:first-child {
+  border:none;
+  padding-left:15px;
+  border-top-left-radius:18px;
+  border-bottom-left-radius:18px;
+}
+
+#actions a:last-child {
+  padding-right:15px;
+  border-top-right-radius:18px;
+  border-bottom-right-radius:18px;
+}
+
+#groups {
+  border-top:6px solid #aaaaaa;
+  padding-top:24px;
+}
+
+.group {
+  display:inline-block;
+  height:64px;
+  width:156px;
+  margin:0 24px 30px 0;
+  color:#86744d;
+}
+
+.group:nth-child(5n) {
+  margin-right:0;
+}
+
+.group img {
+  height:66px;
+  width:66px;
+  margin-right:3px;
+  border-top:1px #c9bca1 solid;
+  border-right:1px #86744d solid;
+  border-bottom:1px #86744d solid;
+  border-left:1px #c9bca1 solid;
+}
+
+.group span {
+  display:inline-block;
+  width:80px;
+  margin-top:8px;
+  vertical-align:top;
+}
+
+#group, #post, .pagination {
+  padding:12px 0;
+  border-top:1px #cccccc solid;
+  border-right:1px #cccccc solid;
+  border-bottom:1px #adaba2 solid;
+  border-left:1px #cccccc solid;
+  background:#dddddd;
+}
+
+#post {
+  background:#ffffff;
+}
+
+.pagination {
+  padding:6px 24px;
+  border-top:1px #adaba2 solid;
+  border-bottom:1px #cccccc solid;
+}
+
+#group .icon, #post .avatar {
+  height:48px;
+  width:48px;
+  margin:0 24px 0 17px;
+  border-top:1px #c9bca1 solid;
+  border-right:1px #86744d solid;
+  border-bottom:1px #86744d solid;
+  border-left:1px #c9bca1 solid;
+}
+
+#group article, #post article {
+  display:inline-block;
+  width:782px;
+}
+
+#posts, #replies {
+  background:#ffffff;
+  border-right:1px #dddddd solid;
+  border-left:1px #dddddd solid;
+}
+
+#replies {
+  margin:24px 0;
+  background:none;
+  border:none;
+}
+
+#posts li, #replies li {
+  list-style:none;
+  padding:12px 0;
+  border-bottom:1px #dddddd solid;
+}
+
+#replies li {
+  padding:24px 0;
+  border:none;
+}
+
+#posts .avatar, #replies .avatar {
+  height:48px;
+  width:48px;
+  margin:0 24px 0 17px;
+  border-top:1px #c9bca1 solid;
+  border-right:1px #86744d solid;
+  border-bottom:1px #86744d solid;
+  border-left:1px #c9bca1 solid;
+}
+
+#posts article, #replies article {
+  display:inline-block;
+  width:782px;
+}
+
+#posts article h1, #replies article h1 {
+  font-size:22px;
+  line-height:30px;
+}
+
+.replies, .delet_reply {
+  float:right;
+  margin:-48px 8px 0 0;
+  font-size:16px;
+  line-height:24px;
+  padding:0 12px;
+  background:#888888;
+  color:#ffffff;
+  text-shadow:0 -1px 0 #333333;
+  border-radius:18px;
+}
+
+.delet_reply {
+  font-family:Museo;
+  margin:-24px -3px 0 0;
+  border:none;
+  cursor:pointer;
+}
+
+.replies:hover, .delet_reply:hover {
+  color:#000000;
+  background:#ffffff;
+  border:1px #cccccc solid;
+  text-shadow:none;
+}
+
+.text {
+  margin-right:36px;
+}
+
+.text p {
+  margin-top:9px;
+}
+
+.form {
+  padding:32px 68px 0;
+  background:#ffffff url(/images/form.png) repeat-x;
+  border-radius:12px;
+  border-right:1px #cccccc solid;
+  border-left:1px #cccccc solid;
+}
+
+.form p {
+  width:748px;
+  font-family:Museo, sans-serif;
+  display:inline-block;
+  padding:5px;
+  margin-bottom:16px;
+  background:#eeeeee;
+  text-align:right;
+  border:1px #cccccc solid;
+  border-radius:5px;
+  color:#888888;
+}
+
+.form input, textarea {
+  padding:0 8px;
+  margin-left:5px;
+  width:500px;
+  font-size:16px;
+  border-top:1px #888888 solid;
+  border-right:1px #bbbbbb solid;
+  border-bottom:1px #bbbbbb solid;
+  border-left:1px #888888 solid;
+  border-radius:5px;
+  text-align:left;
+}
+
+.form textarea {
+  padding:6px 8px;
+}
+
+.form input[type="text"], input[type="password"] {
+  height:24px;
+}
+
+.form input[type="submit"] {
+  border:none;
+  font-family:Museo;
+  padding:0 16px;
+  height:24px;
+  width:auto;
+  color:#ffffff;
+  background:#666666;
+  border-radius:18px;
+  text-shadow:0 -1px 0 #333333;
+}
+
+.form input[type="submit"]:hover {
+  background:#000000;
+  color:#ffffff;
+}
+
+#bottom {
+  position:fixed;
+  bottom:0;
+  width:896px;
+  padding:0 16px 16px 0;
+  background:#e4dfcf url(/images/body.png) repeat;
+}
+
+#bottom h1 {
+  padding-top:16px;
+  text-align:center;
+  font-family:Museo, sans-serif;
+  font-size:22px;
+  line-height:30px;
+  font-weight:normal;
+  color:#86744d;
+  border-top:1px #fffeea dashed;
+}

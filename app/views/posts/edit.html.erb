@@ -1,0 +1,6 @@
+<% title "Groups - #{@post.group.name} - New Post" %>
+<% name "Groups > #{@post.group.name} > New Post" %>
+<% content_for :action do%>
+<%= link_to 'Cancel', post_path(@post) %>
+<% end %>
+<%= render 'form' %>
